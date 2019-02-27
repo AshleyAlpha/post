@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+{% if title %}
+<title> {{title}}</title>
+{%else%}
+<title>welcome to one munite pitches</title>
+{%endif%}
+
+{% block content %}
+
+{{macro.displayPitches(pitches)}}
+<a href="/pitch/new">add pitch</a>
+<h2>pitches</h2>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% macro displayPitches(pitches) %}
+
+{% for pitch in pitches %}
+{% if pitch.user.profile_pic_path %}
+<img src="{{pitch.user.profile_pic_path}}" alt="Show image" height="45">
+<p>{{pitch.user.username}}</p>
+
+<h4>{{pitch.content}}</h4>
+<button>Upvote</button>
+<button>Downvote</button>
+<!-- {% else %}
+<img src="static/photos/no dp.png" alt="no pp">
+<p>{{pitch.user.username}}</p>
+<h4>{{pitch.user.content}}</h4>
+<button>Upvote</button>
+<button>Downvote</button>
+{% endif %} -->
+
+{% endfor %}
+{% endmacro %}
