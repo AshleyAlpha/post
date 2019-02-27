@@ -11,6 +11,10 @@ class ReviewForm(FlaskForm):
 class UpdateProfile(FlaskForm):
     bio = TextAreaField('Tell us about you.',validators = [Required()])
     submit = SubmitField('Submit')
+class PitchForm(FlaskForm):
+     pitch = TextAreaField('write Your Pitch', validators=[Required()])
+     submit = SubmitField('Submit!')
+
 # class AddPitch(FlaskForm):
 #     category=SelectField('category:'choices=[('pickup-lines','pickup-lines'),('interview-pitches','interview-pitches'),('promotion-pitches','promotion-pitches')])
 #     bio = TextAreaField('Tell us about you.',validators = [Required()])

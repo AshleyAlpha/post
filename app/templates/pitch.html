@@ -1,9 +1,21 @@
 {% extends 'base.html'%}
-{% import 'macros.html' as macro%}
+
+{% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
 <div class="container">
 
     <!-- Poster background -->
+    <div>
+        {{wtf.quick_form(form)}}
+    </div>
+</div>
+{% endblock%}
+
+<!-- {% import 'macros.html' as macro%}
+
+<div class="container">
+
+    Poster background
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath"
             style="background: url({{pitch.poster}}) no-repeat center center">
@@ -39,5 +51,4 @@
 
     </div>
 
-</div>
-{% endblock%}
+</div> -->
