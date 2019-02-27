@@ -16,4 +16,10 @@ This is a web application called "a 60 Seconds Pitches" which shows other users 
 * it will be needed to install: 
     * flask-SQLAlchemy
     * psycopg2
+##Cloning
+it will be neede to open:
+* the terminal, and then,
+* git clone https://github.com/AshleyAlpha/pitch.git then,
+* cd pitch
+
     
