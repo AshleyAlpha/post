@@ -8,3 +8,12 @@ This is a web application called "a 60 Seconds Pitches" which shows other users 
 
 ##Setup Installation
 
+* Python3.6 has to be used to run the application
+* pip to be used to install packages of python
+* curl https://bootstrap.pypa.io/get-pip.py | python
+* source virtual/bin/activate
+* Flask installation.
+* it will be needed to install: 
+    * flask-SQLAlchemy
+    * psycopg2
+    
