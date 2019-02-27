@@ -17,9 +17,30 @@ This is a web application called "a 60 Seconds Pitches" which shows other users 
     * flask-SQLAlchemy
     * psycopg2
 ##Cloning
+
 it will be neede to open:
 * the terminal, and then,
 * git clone https://github.com/AshleyAlpha/pitch.git then,
 * cd pitch
+##Technologies Used
 
+* Terminal
+* Database. it will be needed to install these inother to create the DB  
+     * flask-SQLAlchemy
+     * psycopg2
+* Github
+* Terminal
+##Acknowledgement
+
+* Moringa school
+* Wecode Moringa
+
+## Contacts
+ 
+* Tel: +250782387280 you can call and whatsapp me on that number.
+* Email address: mashleyalpha@gmail.com
+
+## License
+
+MT License. copyright (c) 2019 Alpha Ashley MBABAZI.
     
