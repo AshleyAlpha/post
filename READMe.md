@@ -25,12 +25,14 @@ it will be neede to open:
 ## Technologies Used
 
 * Terminal
-* Database. it will be needed to install these inother to create the DB  
-     * flask-SQLAlchemy
-     * psycopg2
 * Github
 * Terminal
-##Acknowledgement
+* Database. it will be needed to install these inother to create the DB:  
+     * flask-SQLAlchemy
+     * psycopg2
+
+
+## Acknowledgement
 
 * Moringa school
 * Wecode Moringa
