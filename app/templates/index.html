@@ -7,11 +7,17 @@
 
 {% block content %}
 <h1>Welcome To one minute Pitches Website</h>
-    <p>this is so hard!!!!</p>
-    <p>merde!!! c'est vraiment beaucoup compliquer</p>
+    <!-- <p>this is so hard!!!!</p>
+    <p>merde!!! c'est vraiment beaucoup compliquer</p> -->
     <a href={{ url_for('main.create_pitches') }}>
-        <button>add Pitch</button></a>
+        <button id="mamie">add Pitch</button></a>
+    {%for vida in pitch%}
+    <p>{{vida.content}}</p>
+    {% endfor%}
     {% endblock%}
+    <!-- <a href={{ url_for('main.comments') }}>
+            <button id="mamie">comments</button></a> -->
+
     <!-- {% if title %}
 <title> {{title}}</title>
 {%else%}

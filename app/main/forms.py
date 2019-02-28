@@ -12,8 +12,13 @@ class UpdateProfile(FlaskForm):
     bio = TextAreaField('Tell us about you.',validators = [Required()])
     submit = SubmitField('Submit')
 class PitchForm(FlaskForm):
-     pitch = TextAreaField('write Your Pitch', validators=[Required()])
+     content = TextAreaField('write Your Pitch', validators=[Required()])
      submit = SubmitField('Submit!')
+
+# class CommentsForm(FlaskForm):
+#     comment = TextAreaField('Comment', validators=[Required()])
+#     # vote=RadioField('default field arguments', choices=[('1', 'UpVote'), ('1', 'DownVote')])
+#     submit = SubmitField('SUBMIT')  
 
 # class AddPitch(FlaskForm):
 #     category=SelectField('category:'choices=[('pickup-lines','pickup-lines'),('interview-pitches','interview-pitches'),('promotion-pitches','promotion-pitches')])

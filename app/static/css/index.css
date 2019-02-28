@@ -1,6 +1,12 @@
-#container {
-  background-color: blue;
+body{
+  background-color: teal;
 }
-.title {
-  color: blueviolet;
+h1{
+  color:snow;
+  text-align: center;
+}
+#mamie{
+  background-color: snow;
+  color:teal;
+  
 }

@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
 from .forms import ReviewForm,UpdateProfile,PitchForm
-from ..models import User
+from ..models import User,Pitch
 from flask_login import login_required
 from .. import db
 
@@ -12,7 +12,8 @@ def index():
     View root page function that returns the index page and its data
     '''
     title = 'Home'
-    return render_template('index.html', title = title)
+    pitch=Pitch.query.all()
+    return render_template('index.html', title = title, pitch=pitch)
 
 @main.route('/user/<uname>')
 def profile(uname):
@@ -47,9 +48,24 @@ def update_profile(uname):
 def create_pitches():
     form = PitchForm()
     if form.validate_on_submit():
-        pitch=form.pitch.data
+        content=form.content.data
+        new_pitch=Pitch(content = content)
 
+        db.session.add(new_pitch)
+        db.session.commit()
 
         return redirect(url_for('main.index'))
 
     return render_template('pitch.html',form = form)  
+
+@main.route('/pitch/new', methods=['GET','POST'])
+@login_required
+def comments():
+    form = CommentsForm()
+    if form.validate_on_submit():
+        comment=form.comment.data
+
+
+        return redirect(url_for('main.index'))
+
+    return render_template('comment.html',form = form)  
