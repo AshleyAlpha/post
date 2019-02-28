@@ -42,6 +42,14 @@ class Pitch(db.Model):
     comments=db.relationship('Comment',backref='pitch',lazy='dynamic')
     def __repr__(self):
         return f'User {self.content}'
+    
+    def save_pitch(self):
+        '''
+        Function that saves pitches
+        '''
+        db.session.add(self)
+        db.session.commit()
+    
 
 class Comment(db.Model):
     __tablename__ = 'comments'
