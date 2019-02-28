@@ -52,9 +52,3 @@ class Comment(db.Model):
     users_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     def __repr__(self):
         return f'User {self.comment}'
-# def save_comment(self):
-#         '''
-#         Function that saves comments
-#         '''
-#         db.session.add(self)
-#         db.session.commit()
