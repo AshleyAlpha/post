@@ -6,7 +6,7 @@
 
 This is a web application called "a 60 Seconds Pitches" which shows other users pitches that they already created and it will allow the user to create an account by signing up and then sign in to create or to post his/her own pitch. the user will also be able to comment on the pitch and also upvote and downvote the pitch.
 
-##Setup Installation
+## Setup Installation
 
 * Python3.6 has to be used to run the application
 * pip to be used to install packages of python
@@ -16,13 +16,13 @@ This is a web application called "a 60 Seconds Pitches" which shows other users 
 * it will be needed to install: 
     * flask-SQLAlchemy
     * psycopg2
-##Cloning
+## Cloning
 
 it will be neede to open:
 * the terminal, and then,
 * git clone https://github.com/AshleyAlpha/pitch.git then,
 * cd pitch
-##Technologies Used
+## Technologies Used
 
 * Terminal
 * Database. it will be needed to install these inother to create the DB  
