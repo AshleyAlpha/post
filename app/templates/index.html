@@ -1,18 +1,24 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
-{% block styles%}
-{{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
 
-{% block content %}
+<body>
+    {% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    {% endblock %}
 
-<div class="container">
-    <h1>Welcome To one minute Pitches Website</h>
-        <a href={{ url_for('main.create_pitches') }}>
-            <button id="mamie">add Pitch</button></a>
-        {%for vida in pitch%}
-        <p>{{vida.content}}</p>
-        {% endfor%}
-</div>
-{% endblock%}
+    {% block content %}
+
+    <div class="container">
+        <h1>Welcome To one minute Pitches Website</h>
+            <a href={{ url_for('main.create_pitches') }}><button id="mamie">add Pitch</button></a>
+
+
+            {%for vida in pitch%}
+
+            <p>{{vida.content}}</p>
+            <a href="/comment/new/{{vida.id}}"><button id="mamie">comment</button></a>
+            {% endfor%}
+    </div>
+    {% endblock%}
+</body>

@@ -2,7 +2,7 @@ from flask import render_template,request,redirect,url_for,abort
 from . import main
 from .forms import ReviewForm,UpdateProfile,PitchForm
 from ..models import User,Pitch
-from flask_login import login_required
+from flask_login import login_required,current_user
 from .. import db
 
 @main.route('/')
@@ -49,7 +49,7 @@ def create_pitches():
     form = PitchForm()
     if form.validate_on_submit():
         content=form.content.data
-        new_pitch=Pitch(content = content)
+        new_pitch=Pitch(content = content,user=current_user)
 
         db.session.add(new_pitch)
         db.session.commit()
@@ -58,14 +58,17 @@ def create_pitches():
 
     return render_template('pitch.html',form = form)  
 
-@main.route('/pitch/new', methods=['GET','POST'])
+@main.route('/comment/new', methods=['GET','POST'])
 @login_required
-def comments():
+def comments(id):
     form = CommentsForm()
     if form.validate_on_submit():
         comment=form.comment.data
+        new_comment=Comment(comment=comment,pitches_id = id,user=current_user)
 
+        db.session.add(new_comment)
+        db.session.commit()
 
-        return redirect(url_for('main.index'))
+    comment=Comment.filter_by(pitches_id=id).all()
 
-    return render_template('comment.html',form = form)  
+    return render_template('comment.html',comment=comment,form = form)  
