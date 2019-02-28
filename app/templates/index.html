@@ -6,26 +6,13 @@
 {% endblock %}
 
 {% block content %}
-<h1>Welcome To one minute Pitches Website</h>
-    <!-- <p>this is so hard!!!!</p>
-    <p>merde!!! c'est vraiment beaucoup compliquer</p> -->
-    <a href={{ url_for('main.create_pitches') }}>
-        <button id="mamie">add Pitch</button></a>
-    {%for vida in pitch%}
-    <p>{{vida.content}}</p>
-    {% endfor%}
-    {% endblock%}
-    <!-- <a href={{ url_for('main.comments') }}>
-            <button id="mamie">comments</button></a> -->
 
-    <!-- {% if title %}
-<title> {{title}}</title>
-{%else%}
-<title>welcome to one munite pitches</title>
-{%endif%}
-
-
-
-{{macro.displayPitches(pitches)}}
-<a href="/pitch/new">add pitch</a>
-<h2>pitches</h2>
+<div class="container">
+    <h1>Welcome To one minute Pitches Website</h>
+        <a href={{ url_for('main.create_pitches') }}>
+            <button id="mamie">add Pitch</button></a>
+        {%for vida in pitch%}
+        <p>{{vida.content}}</p>
+        {% endfor%}
+</div>
+{% endblock%}
