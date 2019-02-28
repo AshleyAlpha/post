@@ -4,9 +4,18 @@ body{
 h1{
   color:snow;
   text-align: center;
+  font-family: calibri;
 }
 #mamie{
   background-color: snow;
   color:teal;
+  font-size: 20px;
   
+}
+.nini{
+  background-color: olive;
+
+  text-align: center;
+  
+
 }
