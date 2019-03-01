@@ -12,8 +12,9 @@ def index():
     View root page function that returns the index page and its data
     '''
     title = 'Home'
+    quote=get_quote()
     post=Post.query.all()
-    return render_template('index.html', title = title, post=post)
+    return render_template('index.html', title = title, post=post,quote=quote)
 
 @main.route('/user/<uname>')
 def profile(uname):
@@ -71,15 +72,4 @@ def comments(id):
 
     comment=Comment.query.filter_by(posts_id=id).all()
 
-    return render_template('comment.html',comment=comment,form = form)  
-
-# @main.route('/quote/<id>')
-# def quote(id):
-
-#     '''
-#     View movie page function that returns the movie details page and its data
-#     '''
-#     quote = get_quote(id)
-#     title = id
-
-#     return render_template('quote.html', title = title, quote = quote)
+    return render_template('comment.html',comment=comment,form = form)

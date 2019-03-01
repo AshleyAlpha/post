@@ -18,6 +18,10 @@
                 <p>{{vida.content}}</p>
                 <a href="/comment/new/{{vida.id}}"><button id="mamie">comment</button></a>
                 {% endfor%}
+                <blockquote class="text-center text-lg">
+                    <p>{{quote.content}}</p>
+                    <footer><cite>{{quote.author}}</cite></footer>
+                </blockquote>
             </div>
         </div>
         {% endblock%}
