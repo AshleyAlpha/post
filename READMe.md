@@ -1,10 +1,10 @@
-## Project Title: 60 Sec PITCHES
+## Project Title: BLOGGING WEBSITE
 
 ## Author: Alpha Ashley MBABAZI
 
 ## Description
 
-This is a web application called "a 60 Seconds Pitches" which shows other users pitches that they already created and it will allow the user to create an account by signing up and then sign in to create or to post his/her own pitch. the user will also be able to comment on the pitch and also upvote and downvote the pitch.
+This is a web application called "blogging website" where you can create and share your opinions and other users can read and comment on them. and it will allow the user to create an account by signing up and then sign in to create the new blogg post. the user will also be able to subscribe inother to see the new bloggs.
 
 ## Setup Installation
 

@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
-from .forms import ReviewForm,UpdateProfile,PitchForm,CommentsForm
-from ..models import User,Pitch,Comment
+from .forms import ReviewForm,UpdateProfile,PostForm,CommentsForm
+from ..models import User,Post,Comment
 from flask_login import login_required,current_user
 from .. import db
 
@@ -12,8 +12,8 @@ def index():
     View root page function that returns the index page and its data
     '''
     title = 'Home'
-    pitch=Pitch.query.all()
-    return render_template('index.html', title = title, pitch=pitch)
+    post=Post.query.all()
+    return render_template('index.html', title = title, post=post)
 
 @main.route('/user/<uname>')
 def profile(uname):
@@ -43,32 +43,43 @@ def update_profile(uname):
 
     return render_template('profile/update.html',form =form)
 
-@main.route('/pitch/new', methods=['GET','POST'])
+@main.route('/post/new', methods=['GET','POST'])
 @login_required
-def create_pitches():
-    form = PitchForm()
+def create_posts():
+    form = PostForm()
     if form.validate_on_submit():
         content=form.content.data
-        new_pitch=Pitch(content = content,user=current_user)
+        new_post=Post(content = content,user=current_user)
 
-        db.session.add(new_pitch)
+        db.session.add(new_post)
         db.session.commit()
 
         return redirect(url_for('main.index'))
 
-    return render_template('pitch.html',form = form)  
+    return render_template('post.html',form = form)  
 
 @main.route('/comment/new/<int:id>', methods=['GET','POST'])
-@login_required
+# @login_required
 def comments(id):
     form = CommentsForm()
     if form.validate_on_submit():
         comment=form.comment.data
-        new_comment=Comment(comment=comment,pitches_id = id,user=current_user)
+        new_comment=Comment(comment=comment,posts_id = id,user=current_user)
 
         db.session.add(new_comment)
         db.session.commit()
 
-    comment=Comment.query.filter_by(pitches_id=id).all()
+    comment=Comment.query.filter_by(posts_id=id).all()
 
     return render_template('comment.html',comment=comment,form = form)  
+
+# @main.route('/quote/<id>')
+# def quote(id):
+
+#     '''
+#     View movie page function that returns the movie details page and its data
+#     '''
+#     quote = get_quote(id)
+#     title = id
+
+#     return render_template('quote.html', title = title, quote = quote)

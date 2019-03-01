@@ -9,11 +9,11 @@
 
     {% block content %}
 
-    <h1>Welcome To one minute(60 sEC) Pitches Website</h>
-        <a href={{ url_for('main.create_pitches') }}><button id="mamie">add Pitch</button></a>
+    <h1>Welcome To our blogging Website</h>
+        <a href={{ url_for('main.create_posts') }}><button id="mamie">add Post</button></a>
         <div class="container">
             <div class="nini">
-                {%for vida in pitch%}
+                {%for vida in post%}
 
                 <p>{{vida.content}}</p>
                 <a href="/comment/new/{{vida.id}}"><button id="mamie">comment</button></a>
