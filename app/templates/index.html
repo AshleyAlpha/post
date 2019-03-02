@@ -1,5 +1,6 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
+{% import "bootstrap/wtf.html" as wtf %}
 
 <body>
     {% block styles%}
@@ -9,20 +10,29 @@
 
     {% block content %}
 
-    <h1>Welcome To our blogging Website</h>
-        <a href={{ url_for('main.create_posts') }}><button id="mamie">add Post</button></a>
-        <div class="container">
-            <div class="nini">
-                {%for vida in post%}
+    <h1>Welcome To our blogging Website</h1>
+    <h2>
+        <a href={{ url_for('main.create_posts') }}>
+            <button id="mamie">addPost</button></a>
+    </h2>
 
-                <p>{{vida.content}}</p>
-                <a href="/comment/new/{{vida.id}}"><button id="mamie">comment</button></a>
-                {% endfor%}
-                <blockquote class="text-center text-lg">
-                    <p>{{quote.content}}</p>
-                    <footer><cite>{{quote.author}}</cite></footer>
-                </blockquote>
-            </div>
+    <div class="container">
+        <blockquote class="text-center text-lg">
+            <h2> Random Quotes</h2>
+            <p>{{quote.quote}}</p>
+            <p class="sab">Author: {{quote.author}}</p>
+            <!-- <footer><cite>{{quote.author}}</cite></footer> -->
+        </blockquote>
+        <div class="nini">
+            {%for vida in post%}
+            <p>{{vida.names}}</p>
+            <p>{{vida.content}}</p>
+            <a href="/comment/new/{{vida.id}}"><button id="mamie">comment</button></a>
+            {% endfor%}
+
+
         </div>
-        {% endblock%}
+
+    </div>
+    {% endblock%}
 </body>

@@ -1,21 +1,30 @@
-body{
-  background-color: teal;
-}
 h1{
   color:snow;
   text-align: center;
   font-family: calibri;
+  background-color: teal; 
+  padding: 40px;
+  margin-left: 400px;
+  margin-right:400px;
+  
 }
-#mamie{
-  background-color: snow;
+h2{
   color:teal;
   font-size: 20px;
-  
+  text-align: center;
+}
+#mamie{
+  color:teal;
+  font-size: 20px;
+ 
 }
 .nini{
-  background-color: olive;
+  background-color: teal;
+  color: snow;
+  font-size: 25px;
+  padding-left: 50px;
 
-  text-align: center;
-  
-
+}
+.sab{
+  color: rgb(28, 54, 54);
 }

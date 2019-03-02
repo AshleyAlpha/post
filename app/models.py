@@ -45,6 +45,7 @@ class Comment(db.Model):
     __tablename__ = 'comments'
 
     id = db.Column(db.Integer,primary_key = True)
+    names = db.Column(db.String(255), index=True)
     comment = db.Column(db.String(255))
     posts_id = db.Column(db.Integer,db.ForeignKey('posts.id'))
     users_id = db.Column(db.Integer,db.ForeignKey('users.id'))

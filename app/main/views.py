@@ -1,10 +1,12 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
-from .forms import ReviewForm,UpdateProfile,PostForm,CommentsForm
-from ..models import User,Post,Comment
+from .forms import ReviewForm,UpdateProfile,PostForm,CommentsForm,SubForm
+from ..models import User,Post,Comment,Subscribe
 from flask_login import login_required,current_user
 from .. import db
-from .request import get_quote
+from ..request import get_quote
+from ..email import mail_message
+
 
 @main.route('/')
 def index():
@@ -14,6 +16,7 @@ def index():
     '''
     title = 'Home'
     quote=get_quote()
+    # print(quote)
     post=Post.query.all()
     return render_template('index.html', title = title, post=post,quote=quote)
 
@@ -49,12 +52,16 @@ def update_profile(uname):
 @login_required
 def create_posts():
     form = PostForm()
+    subscribers=Subscribe.query.all()
     if form.validate_on_submit():
         content=form.content.data
         new_post=Post(content = content,user=current_user)
 
         db.session.add(new_post)
         db.session.commit()
+        for subscriber in subscribers:
+          mail_message("Thank you for subscribing","email/notification",subscriber.email)
+
 
         return redirect(url_for('main.index'))
 
@@ -70,7 +77,21 @@ def comments(id):
 
         db.session.add(new_comment)
         db.session.commit()
-
     comment=Comment.query.filter_by(posts_id=id).all()
 
     return render_template('comment.html',comment=comment,form = form)
+
+@main.route('/subscriber/new/', methods=['GET','POST'])
+def subscribe():
+    form=SubForm()
+    if form.validate_on_submit():
+        email=form.email.data
+        new_subscriber=Subscribe(email=email)
+
+        db.session.add(new_subscriber)
+        db.session.commit()
+        mail_message("Thank you for subscribing","email/subscribing",new_subscriber.email)
+        
+        return redirect(url_for('main.index'))
+
+    return render_template('subscriber.html',form = form)
