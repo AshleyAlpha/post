@@ -85,16 +85,16 @@ def update_post(id):
          return redirect(url_for('main.index'))
    return render_template('update_post.html',form=form)
 
-@main.route('/delete/comment/<int:id>', methods = ['GET', 'POST'])
+@main.route('/delete/post/<int:id>', methods = ['GET', 'POST'])
 @login_required
 def delete_post(id):
     post=Post.query.filter_by(id=id).first()
- 
-
+    title = 'Home'
+    
     if post is not None:
        post.delete_post()
        return redirect(url_for('main.index'))
-
+    return render_template('index.html', title = title, post=post,quote=quote)
 
 @main.route('/comment/new/<int:id>', methods=['GET','POST'])
 @login_required
@@ -115,6 +115,7 @@ def comments(id):
 @main.route('/delete/comment/<int:id>', methods = ['GET', 'POST'])
 @login_required
 def delete_comment(id):
+    form = CommentsForm()
     comment=Comment.query.filter_by(id=id).first()
  
 
@@ -122,6 +123,7 @@ def delete_comment(id):
        comment.delete_comment()
        return redirect(url_for('main.index'))
 
+    return render_template('comment.html',form = form)
 
 @main.route('/subscriber/new/', methods=['GET','POST'])
 def subscribe():
