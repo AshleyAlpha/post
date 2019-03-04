@@ -51,6 +51,10 @@ class Comment(db.Model):
     users_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     def __repr__(self):
         return f'User {self.comment}'
+    
+    def delete_comment(self):
+       db.session.delete(self)
+       db.session.commit()
 
 class Subscribe(db.Model):
     __tablename__ = 'subscribers'

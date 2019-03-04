@@ -17,6 +17,7 @@
         {% for vida in comment %}
         <p>{{vida.names}}</p>
         <p>{{vida.comment}}</p>
+        <a href="{{url_for('main.delete_comment',id=vida.id)}}">Delete comment</a>
         {% endfor %}
     </div>
 </div>

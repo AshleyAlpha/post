@@ -68,18 +68,31 @@ def create_posts():
     return render_template('post.html',form = form)  
 
 @main.route('/comment/new/<int:id>', methods=['GET','POST'])
-# @login_required
+@login_required
 def comments(id):
     form = CommentsForm()
     if form.validate_on_submit():
+        names=form.names.data
         comment=form.comment.data
         new_comment=Comment(comment=comment,posts_id = id,user=current_user)
+        # new_names=Comment(names=names,posts_id = id,user=current_user)
 
         db.session.add(new_comment)
         db.session.commit()
     comment=Comment.query.filter_by(posts_id=id).all()
 
     return render_template('comment.html',comment=comment,form = form)
+
+@main.route('/delete/comment/<int:id>', methods = ['GET', 'POST'])
+@login_required
+def delete_comment(id):
+    comment=Comment.query.filter_by(id=id).first()
+ 
+
+    if comment is not None:
+       comment.delete_comment()
+       return redirect(url_for('main.index'))
+
 
 @main.route('/subscriber/new/', methods=['GET','POST'])
 def subscribe():
