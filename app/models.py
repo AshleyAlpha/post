@@ -41,6 +41,10 @@ class Post(db.Model):
     def __repr__(self):
         return f'User {self.content}'
 
+    def delete_post(self):
+       db.session.delete(self)
+       db.session.commit()
+
 class Comment(db.Model):
     __tablename__ = 'comments'
 

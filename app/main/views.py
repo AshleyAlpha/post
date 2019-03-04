@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
-from .forms import ReviewForm,UpdateProfile,PostForm,CommentsForm,SubForm
+from .forms import ReviewForm,UpdateProfile,PostForm,CommentsForm,SubForm,UpdatePostForm
 from ..models import User,Post,Comment,Subscribe
 from flask_login import login_required,current_user
 from .. import db
@@ -65,7 +65,36 @@ def create_posts():
 
         return redirect(url_for('main.index'))
 
-    return render_template('post.html',form = form)  
+    return render_template('post.html',form = form) 
+
+@main.route('/edit/post/<int:id>',methods= ['GET','POST'])
+@login_required
+def update_post(id):
+   post=Post.query.filter_by(id=id).first()
+   if post is None:
+        abort(404)
+
+   form=UpdatePostForm()
+   if form.validate_on_submit():
+        #  post.title=form.title.data
+         post.content=form.content.data
+
+         db.session.add(post)
+         db.session.commit()
+
+         return redirect(url_for('main.index'))
+   return render_template('update_post.html',form=form)
+
+@main.route('/delete/comment/<int:id>', methods = ['GET', 'POST'])
+@login_required
+def delete_post(id):
+    post=Post.query.filter_by(id=id).first()
+ 
+
+    if post is not None:
+       post.delete_post()
+       return redirect(url_for('main.index'))
+
 
 @main.route('/comment/new/<int:id>', methods=['GET','POST'])
 @login_required
@@ -74,8 +103,8 @@ def comments(id):
     if form.validate_on_submit():
         names=form.names.data
         comment=form.comment.data
-        new_comment=Comment(comment=comment,posts_id = id,user=current_user)
-        # new_names=Comment(names=names,posts_id = id,user=current_user)
+        new_comment=Comment(comment=comment,names=names ,posts_id = id,user=current_user)
+        
 
         db.session.add(new_comment)
         db.session.commit()
