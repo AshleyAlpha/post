@@ -16,13 +16,19 @@ h2{
 #mamie{
   color:teal;
   font-size: 20px;
+  background-color: cornsilk;
+
+  
  
 }
 .nini{
   background-color: teal;
   color: cornsilk;
   font-size: 25px;
-  padding-left: 50px;
+  /* padding-left: 50px; */
+  text-align: center;
+  
+ 
 
 }
 .sab{
@@ -31,8 +37,14 @@ h2{
 .anna{
   background-color: teal;
   color:snow;
+  
 }
 #sub{
   font-size: 20px;
   color: cornsilk;
+}
+.bella{
+  border-bottom: 1px solid cornsilk;
+  margin: 10px;
+  padding:50px;
 }

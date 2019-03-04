@@ -26,12 +26,13 @@
         </blockquote>
         <div class="nini">
             {%for vida in post%}
-            <p>{{vida.names}}</p>
-            <p>{{vida.content}}</p>
-            <a href="/comment/new/{{vida.id}}"><button id="mamie">comment</button></a>
-            <a href="{{url_for('main.update_post',id=vida.id)}}"><button id="mamie">Edit</button></a>
-            <a href="{{url_for('main.delete_post',id=vida.id)}}"><button id="mamie">Delete</button></a>
-
+            <div class="bella">
+                <p>{{vida.names}}</p>
+                <p>{{vida.content}}</p>
+                <a href="/comment/new/{{vida.id}}"><button id="mamie">comment</button></a>
+                <a href="{{url_for('main.update_post',id=vida.id)}}"><button id="mamie">Edit</button></a>
+                <a href="{{url_for('main.delete_post',id=vida.id)}}"><button id="mamie">Delete</button></a>
+            </div>
             {% endfor%}
 
 
