@@ -15,7 +15,7 @@
     <div class="anna">
         <div class="well-lg">
             {% for vida in comment %}
-            <p id="sub">{{vida.names}} commented:</p>
+            <p id="sub"><strong>{{vida.names}}</strong> commented:</p>
             <p>{{vida.comment}}</p>
             <a href="{{url_for('main.delete_comment',id=vida.id)}}"><button id="mamie">Delete</button></a>
             {% endfor %}
