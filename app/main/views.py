@@ -60,7 +60,7 @@ def create_posts():
         db.session.add(new_post)
         db.session.commit()
         for subscriber in subscribers:
-          mail_message("Thank you for subscribing","email/notification",subscriber.email)
+          mail_message("hello! there is new post","email/notification",subscriber.email)
 
 
         return redirect(url_for('main.index'))
