@@ -4,7 +4,7 @@
 
 ## Description
 
-This is a web application called "blogging website" where you can create and share your opinions and other users can read and comment on them. and it will allow the user to create an account by signing up and then sign in to create the new blogg post. the user will also be able to subscribe inother to see the new bloggs.
+This is a web application called "blogging website" where you can create and share your opinions and other users can read and comment on them. and it will allow the user to create an account by signing up and then sign in to create the new blogg post. the user will also be able to subscribe inother to see the new bloggs. here is a link to my website: https://blogappmamy.herokuapp.com/
 
 ## Setup Installation
 
