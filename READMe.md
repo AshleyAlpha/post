@@ -20,7 +20,7 @@ This is a web application called "blogging website" where you can create and sha
 
 it will be neede to open:
 * the terminal, and then,
-* git clone https://github.com/AshleyAlpha/pitch.git then,
+* git clone https://github.com/AshleyAlpha/post.git then,
 * cd pitch
 ## Technologies Used
 
